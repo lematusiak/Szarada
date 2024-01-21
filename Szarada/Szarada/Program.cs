@@ -1,109 +1,62 @@
-﻿// See https://aka.ms/new-console-template for more information
-// Console.WriteLine("Hello, World!");
+Kurs Adama Lekcja 5 TABLICE, P�TLA FOR Z TABLICAMI
 
-// Lekcja 055 ŁĄCZENIE TEKSTU & FORMATOWANIE "WRITELINE"
+int[] grades = new int[365];
+string[] dayOfWeek = new string[7];
 
-// ŁĄCZENIE TEKSTU
-/*
-string s1 = " Witaj";
-string s2 = " Świecie";
-string s3 = s1 + s2;
+// PIERWSZY WZ�R
 
-Console.WriteLine(  s3);
-Console.WriteLine(  s1 +  s2);    // Można również tak. 
+dayOfWeek[0] = "pn";
+dayOfWeek[1] = "wt";
+dayOfWeek[2] = "sr";
+dayOfWeek[3] = "cz";
+dayOfWeek[4] = "pt";
+dayOfWeek[5] = "sb";
+dayOfWeek[6] = "nd";
 
-// Poniżej wyświetli się Witaj Świecie. Uwaga, jeśli nie zrobimy pauzy
-// w drugim stringu WitajŚwiecie wyświetli się w jednym ciągu.
+Console.WriteLine(dayOfWeek[2]); // zwr�ci sr
 
-// Powyższe łączenie teksty to Kontagenacja. 
-// Nie jest to dodawanie, tylko doklejanie tekstu do tekstu
-// Odnosi się do łączenia ciągów znaków (stringów).
-// Jest przydatna, gdy chcemy stworzyć np. komunikat powitalny,
-// w którym wyświetlamy imię użytkownika wraz z przywitaniami.
+// DRUGI WZ�R
 
-// FORMATOWANIE WRITELINE
+string[] week = 
+         { " pn", "wt", "sr", " cz", "pt", "sb", "nd" };
 
-// W formatowaniu tekstu chodzi o to, że możemy łączyć dwie zmienne (s1 + s2)
-// oraz doklejać (wpisywać) tekst, jak poniżej
-// Ważne aby tekst wpisywać w "cudzysłowie"
+Console.WriteLine(); // oddziela linie - pomijane dalej
 
-// Console.WriteLine( s1 +  s3  +  " Marniutki Globie !!! ");
-
-// Możemy w nawiasach klamrowych podać indeks, robimy to po przecinku 
-// Indeksy liczone są od zera, bo programiści uznali, 
-// że zero jest liczbą dodatnią
-// W poniższym indeks {0} wyświetli zmienną s1
-// Czyli "Witaj Świecie Marniutki Globie!!! Witaj Świecie
-
-// Console.WriteLine(  s1 + s2 + "Marniutki Globie!!! {0} {1}", s1, s2);
-
-// Więc widzimy do indeksu 0 jest przypisana zmienna s1 "Witaj" 
-// a do indeksu s2 "Świecie"
-
-// Mamy jeszcze swojego rodzaju mosyfikator slesz z literą \n
-// Tworzy nową linię
-// W tym przypadku indeks 1 w postaci zmiennej s2 będzie napisany linię niżej
-// Jeśli dodamy 3x \n \n \n jak poniżej zmienna s2 wyświetli sie trzy linie niżej
-// NIe musimy tworzyć dodatkowego cw, żeby była dodatkowa linia
-
-// Console.WriteLine(s1 + s2 + "Marniutki Globie!!! {0} \n\n\n {1}", s1, s2);
-*/
+Console.WriteLine(week[6]); // zwr�ci nd
 
 
-// MODYFIKACJA WYGLĄDU KONSOLI
-
-// Modyfikacja może dotyczyć kolorów konsoli
-// Jeśli po jednym, a przed drugim cw wpiszemy Consol. (consol kropka)
-// to jest mnóstwo opcji, żeby skorzystać ze narzędzi visual studio
-// Np wpisując consol.col - wyświetli się BackgraundColor (kolor tła)
-// Foregraund Color (zmiana koloru) lub ResetColor (wyresetowanie kolorów)
+for (int i = 0; i < 7; i++)
+{
+    Console.WriteLine("[i]"); // zwr�ci 7x[i]
+}
 
 
-// 
+for (int j = 0; j < 7; j++)
+{
+    Console.WriteLine(j); // zwr�ci 0 1 2 3 4 5 6
+}
 
-string s1 = " Witaj";
-string s2 = " Świecie";
-string s3 = s1 + s2;
+// ZABAWA Z P�TL�
 
-Console.WriteLine(s3);
-Console.WriteLine(s1 + s2);
-Console.ForegroundColor = ConsoleColor.Red ;
-Console.WriteLine(s1 + s2 + "Marniutki Globie!!! {0} \n\n\n {1}", s1, s2);
-Console.ForegroundColor = ConsoleColor.Blue;
-Console.WriteLine(s1 + s2 + "Marniutki Globie!!! {0} \n\n\n {1}", s1, s2);
-Console.BackgroundColor = ConsoleColor.Green;
-Console.WriteLine(s1 + s2 + "Marniutki Globie!!! {0} \n\n\n {1}", s1, s2);
-Console.ResetColor();
-Console.WriteLine(s1 + s2 + "Marniutki Globie!!! {0} \n\n\n {1}", s1, s2);
-Console.ReadKey();       // tutaj zatrzymujemy program - od tego jest to polecenie
-Console.Clear();         // po kliknięciu obojętnie jakiego klawisza, wszystko z konsoli zniknie       
+// Poni�sza p�tla wy�wietli pn wt sr cz pt sb nd. Ale zasada jest taka, �e wiemy, �e g < 7
 
+for (int g = 0; g < 7; g++)
+{
+    Console.WriteLine(dayOfWeek[g]); 
+}
 
-//Poniżej konsole z akapitów 68,69 wyświetlą się normalnie\
-// z akapitu 71 na czerwono
-// z akapitu 73 na niebiesko
-//
-// kolory są tutaj tylko polami dlatego nie są  przechowywane w nawiasach
-// (zapis = ConsoleColor.Blue), są to tylko liczby (oznaczające dany kolor)
-// Nie są to metod, ponieważ nie robią żadnych obliczeń, tak jak 
-// powiedzieliśmy są tylko przypisanymi liczbami np. 12 dla koloru red
-// Używając Console BackgroundColor zmieniamy tło tekstu (akapit 75 - green)
+// Ale nie zawsze musimy wiedzie�, od ilu g musi by� mniejsze(drugi slot, druga przestrze�). Gdyby kto� kiedy� w kodzie wyj�ciowym co� zmieni�, �e np k < 1000, to Lenght rozwi�zuje ten problem
 
-// Consol.ResetColour (); to metoda ponieważ ona coś restartuje,
-// nie przechowuje informacji pojedyńczej tylko wykonuje jakieś działania
-// Widzimy, że jest to metoda, są nawiasy, i tak będziemy to rozróżniać
-// Akapit  77 (przedostatni) ustawi nam wszystko do ustawień domyślych,
-// czyli ustawi czarne tło, biały tekst
-
-// Akapit 78 (zatrzymujemy program przez Console.ReadKey();
-// i chcemy wszystko wyczyścić przez Console.Clear(); akapit 79
-// UWAGA: po wciśnięciu obojętnie jakiego klawisza, wszystko z konsoli
-// zostanie usunięte - zadziała clear - czyszczenie!!!
-
-// Dość Pan! Dziekuję 30 listopada 2023
+for (int k = 0; k < dayOfWeek.Length; k = k + 1)
+{
+    Console.WriteLine(dayOfWeek[k]); 
+                         // zwr�ci pn wt sr cz pt sb nd
+}
 
 
+for (int m = 0; m < dayOfWeek.Length; m = m + 2)
+{
+    Console.WriteLine(dayOfWeek[m]); // zwr�ci pn sr pt nd
+}
 
 Console.ReadKey();
-
-
